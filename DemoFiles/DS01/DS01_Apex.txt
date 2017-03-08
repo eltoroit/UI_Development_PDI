@@ -1,0 +1,24 @@
+public class DS01 {
+    private Integer counter1;
+    
+    public Integer getCounter1() {
+        return counter1;
+    }
+    
+    public void setCounter1(Integer value) {
+        counter1 = value;
+    }
+
+    public Integer Counter2 { get; set; }
+    
+    public DS01() {
+        counter1 = 0;
+        counter2 = 0;
+    }
+    
+    public PageReference plus1() {
+        counter1++;
+        counter2++;
+        return null;
+    }
+}

@@ -1,0 +1,11 @@
+<aura:application extends="force:slds">
+    <aura:attribute name="counter" type="Integer" default="0" />
+    <aura:attribute name="isOnDiv" type="Boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	
+    <div onmouseover="{!c.overDiv}" onmouseout="{!c.outDiv}">
+        <lightning:input type="text" name="counter" label="counter"
+                         value="{!v.counter}"  />
+    </div>
+    <lightning:button variant="brand" label="Plus 1" onclick="{!c.plus1}" />
+</aura:application>

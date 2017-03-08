@@ -1,0 +1,22 @@
+({
+    doInit : function(component, event, helper) {
+        window.setInterval(
+            $A.getCallback(function() {
+                if (component.isValid()) {
+                    if (component.get("v.isOnDiv")) {
+                        helper.plus1(component);                        
+                    }
+                }
+            }),
+            50);
+    },
+    plus1 : function(component, event, helper) {
+        helper.plus1(component);
+    },
+    overDiv : function(component, event, helper) {
+        component.set("v.isOnDiv", true);
+    },
+    outDiv : function(component, event, helper) {
+        component.set("v.isOnDiv", false);
+    }
+})

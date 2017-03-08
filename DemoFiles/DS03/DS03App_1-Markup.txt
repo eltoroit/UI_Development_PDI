@@ -1,0 +1,5 @@
+<aura:application extends="force:slds">
+    <aura:attribute name="counter" type="Integer" default="0" />
+    <lightning:input type="text" name="counter" label="counter" value="{!v.counter}" />
+    <lightning:button variant="brand" label="Plus 1" onclick="{!c.plus1}" />
+</aura:application>

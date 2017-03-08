@@ -1,0 +1,47 @@
+<apex:page standardController="Course__c" extensions="DS02" >
+    <style>
+        .banner {
+            color: red;
+        	cursor: pointer;
+        	text-align: center;
+            font-size: xx-large;
+        	background-color: yellow;
+        }
+    </style>
+    <div class="banner" onclick="javascript:SayHi();">
+        Click Me, please ;-)
+    </div>
+    <script>
+    function SayHi() { alert("Hello World"); }
+    </script>
+    <apex:form id="theForm">
+        <apex:pageblock title="Course" >
+            <apex:pageBlockButtons location="top" >
+                <apex:commandButton value="Save" action="{!Save}" status="theStatus"/>
+                <apex:commandButton value="Quick Save" action="{!QuickSave}" rerender="theForm" status="theStatus" />
+                <apex:actionStatus id="theStatus" startText="Please Wait"></apex:actionStatus>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection>
+                <apex:inputField value="{!Course__c.Name}" />                
+                <apex:inputField value="{!Course__c.Duration__c}" />                
+                <apex:inputField value="{!Course__c.Status__c}" />                
+                <apex:inputField value="{!Course__c.Certification__c}" />
+            </apex:pageBlockSection>
+        </apex:pageblock>
+        <apex:pageBlock title="Deliveries">
+            <apex:pageBlockButtons location="top" >
+                <apex:commandButton value="Save Children" action="{!SaveChildren}" rerender="theForm" status="theStatusChildren" />
+                <apex:actionStatus id="theStatusChildren" startText="Please Wait"></apex:actionStatus>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!Course__c.Course_Deliveries__r}" var="cd">
+                    <apex:column value="{!cd.Name}" />
+                    <apex:column ><apex:inputField value="{!cd.Region__c}" /></apex:column>
+                    <apex:column ><apex:inputField value="{!cd.Location__c}" /></apex:column>
+                    <apex:column ><apex:inputField value="{!cd.Start_Date__c}" /></apex:column>
+                    <apex:column ><apex:inputField value="{!cd.Status__c}" /></apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

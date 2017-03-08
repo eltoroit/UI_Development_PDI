@@ -1,0 +1,24 @@
+<apex:page standardController="Course__c" extensions="DS02" >
+    <apex:form id="theForm">
+        <apex:pageblock title="Course" >
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!Save}" status="theStatus"/>
+                <apex:commandButton value="Quick Save" action="{!QuickSave}" rerender="theForm" status="theStatus" />
+                <apex:commandButton value="Plus1" action="{!plus1}" rerender="theForm" status="theStatus" />
+                <apex:actionStatus id="theStatus" startText="Please Wait"></apex:actionStatus>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Data" >
+                <apex:inputField value="{!Course__c.Name}" />                
+                <apex:inputField value="{!Course__c.Duration__c}" />                
+                <apex:inputField value="{!Course__c.Status__c}" />                
+                <apex:inputField value="{!Course__c.Certification__c}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Counter" >
+                <apex:pageBlockSectionItem >
+                    <apex:outputText value="Counter" />
+                    <apex:inputText value="{!Counter}" />
+                </apex:pageBlockSectionItem>               
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

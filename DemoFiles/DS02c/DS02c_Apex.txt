@@ -1,0 +1,23 @@
+public with sharing class DS02 {
+    private ApexPages.StandardController controller;
+    
+    public Integer counter { get; set; } 
+    public List<Course_Delivery__c> deliveries { get; set; }
+    
+    public DS02(ApexPages.StandardController controller) {
+        counter = 0;
+        this.controller = controller;
+        Course__c course = (Course__c) controller.getRecord();
+        deliveries = course.Course_Deliveries__r;
+    }
+    
+    public PageReference plus1() {
+        counter++;
+        return null;
+    }
+    
+    public PageReference SaveChildren() {
+        update deliveries;
+        return null;
+    }
+}

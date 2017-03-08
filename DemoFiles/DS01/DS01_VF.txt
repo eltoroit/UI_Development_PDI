@@ -1,0 +1,8 @@
+<apex:page controller="DS01" >
+    <apex:form id="theForm">
+        <apex:inputText value="{!Counter1}" /><br/>
+        <apex:inputText value="{!Counter2}" /><br/>
+        <apex:commandButton value="Plus1" action="{!plus1}" rerender="theForm" status="theStatus" />
+        <apex:actionStatus id="theStatus" startText="Please Wait"></apex:actionStatus>
+    </apex:form>
+</apex:page>

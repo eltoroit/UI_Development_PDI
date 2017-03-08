@@ -1,0 +1,7 @@
+({
+	plus1 : function(component, event, helper) {
+		var counter = component.get("v.counter");
+        counter++;
+        component.set("v.counter", counter);
+	}
+})
